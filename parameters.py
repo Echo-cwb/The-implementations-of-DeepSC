@@ -6,14 +6,14 @@ def para_config():
     parser = argparse.ArgumentParser()
 
     # preprocessing parameters
-    parser.add_argument('--input-data-dir', default='europarl/en', type=str)
-    parser.add_argument('--output-train-dir', default='europarl/train_data.pkl', type=str)
-    parser.add_argument('--output-test-dir', default='europarl/test_data.pkl', type=str)
-    parser.add_argument('--output-vocab', default='europarl/vocab.json', type=str)
+    parser.add_argument('--input-data-dir', default='/content/drive/MyDrive/A-data/europarl/en', type=str)
+    parser.add_argument('--output-train-dir', default='/content/drive/MyDrive/A-data/europarl/train_data.pkl', type=str)
+    parser.add_argument('--output-test-dir', default='/content/drive/MyDrive/A-data/europarl/test_data.pkl', type=str)
+    parser.add_argument('--output-vocab', default='/content/drive/MyDrive/A-data/europarl/vocab.json', type=str)
 
-    parser.add_argument('--train-save-path', default='/homes/hx301/data/europarl/train_data.pkl', type=str)
-    parser.add_argument('--test-save-path', default='/homes/hx301/data/europarl/test_data.pkl', type=str)
-    parser.add_argument('--vocab-path', default='/homes/hx301/data/europarl/vocab.json', type=str)
+    parser.add_argument('--train-save-path', default='/content/drive/MyDrive/A-data/europarl/train_data.pkl', type=str)
+    parser.add_argument('--test-save-path', default='/content/drive/MyDrive/A-data/europarl/test_data.pkl', type=str)
+    parser.add_argument('--vocab-path', default='/content/drive/MyDrive/A-data/europarl/vocab.json', type=str)
 
     # Training parameters
     parser.add_argument('--bs', default=64, type=int, help='The training batch size')
@@ -22,10 +22,10 @@ def para_config():
     parser.add_argument('--epochs', default=60, type=int, help='The training number of epochs')
     parser.add_argument('--train-with-mine',  action='store_true',
                     help='If added, the network will be trained WITH Mutual Information')
-    parser.add_argument('--checkpoint-path', default='./checkpoint', type=str,
+    parser.add_argument('--checkpoint-path', default='/content/drive/MyDrive/A-DeepSC_for_Text/With_MI/checkpoint', type=str,
                         help='The path to save model')
     parser.add_argument('--max-length', default=35, type=int, help='The path to save model')
-    parser.add_argument('--channel', default='AWGN', type=str, help='Choose the channel to simulate')
+    parser.add_argument('--channel', default='Rayleigh', type=str, help='Choose the channel to simulate')
 
     # Model parameters
     parser.add_argument('--encoder-num-layer', default=4, type=int, help='The number of encoder layers')
@@ -42,12 +42,12 @@ def para_config():
 
 
     # Other parameter settings
-    parser.add_argument('--train-snr', default=3, type=int, help='The train SNR')
-    parser.add_argument('--test-snr', default=6, type=int, help='The test SNR')
+    parser.add_argument('--train-snr', default=0, type=int, help='The train SNR')
+    parser.add_argument('--test-snr', default=0, type=int, help='The test SNR')
     # Mutual Information Model Parameters
 
 
-    args = parser.parse_args()
+    args = parser.parse_args(args=[])
 
     return args
 
